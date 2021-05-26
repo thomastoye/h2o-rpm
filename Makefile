@@ -12,6 +12,7 @@ LIBUV_ARCHIVE := libuv-$(LIBUV_DOWNLOAD_NAME)
 .PHONY: all clean centos7 centos8 fedora opensuse-leap
 
 all: centos7 fedora opensuse-leap
+srpm: all
 centos7: centos7.build
 centos8: centos8.build
 fedora: fedora.build
