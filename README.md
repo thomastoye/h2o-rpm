@@ -52,12 +52,11 @@ If you'd like to build RPM for specific distribution, please run a command like
 following
 
 ```bash
-make centos6
+make centos7
 ```
 
 Now this understands
 
-- centos6
 - centos7
 - centos8
 - fedora

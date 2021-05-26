@@ -1,4 +1,5 @@
 %define docroot /var/www
+%define vendor_version 2.3.0-beta2
 
 %if 0%{?fedora} >= 15 || 0%{?rhel} >= 7 || 0%{?suse_version} >= 1210
   %global with_systemd 1
@@ -28,16 +29,16 @@
 
 Summary: H2O - The optimized HTTP/1, HTTP/2 server
 Name: h2o
-Version: 2.2.6
+Version: %(echo %vendor_version | sed 's/-beta/beta/g')
 Release: 2%{?dist}
 URL: https://h2o.examp1e.net/
-Source0: https://github.com/h2o/h2o/archive/v%{version}.tar.gz
+Source0: https://github.com/h2o/h2o/archive/v%{vendor_version}.tar.gz
 Source1: index.html
 Source2: h2o.logrotate
 Source3: h2o.init
 Source4: h2o.service
 Source5: h2o.conf
-Patch1: 02-fix-c99-compile-error.patch
+
 License: MIT
 Group: System Environment/Daemons
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
@@ -104,8 +105,7 @@ libh2o-devel package provides H2O header files and helpers which allow you to
 build your own software using H2O.
 
 %prep
-%setup -q
-%patch1 -p1 -b .c99
+%setup -n h2o-%{vendor_version}
 
 %build
 cmake %{ssl_option} -DWITH_MRUBY=on -DCMAKE_INSTALL_PREFIX=%{_prefix} -DBUILD_SHARED_LIBS=on .
@@ -283,6 +283,7 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %{_sbindir}/h2o
+%{_sbindir}/h2o-httpclient
 %{_datadir}/h2o/annotate-backtrace-symbols
 %{_datadir}/h2o/fastcgi-cgi
 %{_datadir}/h2o/fetch-ocsp-response
@@ -295,6 +296,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/h2o/ca-bundle.crt
 %{_datadir}/h2o/status
+
+%{_mandir}/man5/h2o.conf.5.gz
+%{_mandir}/man8/h2o.8.gz
 
 %if 0%{?suse_version} == 0
 %dir %{docroot}

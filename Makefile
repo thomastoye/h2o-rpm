@@ -1,7 +1,6 @@
-SOURCE_ARCHIVE := v2.2.6.tar.gz
+SOURCE_ARCHIVE := v2.3.0-beta2.tar.gz
 TARGZ_FILE := h2o.tar.gz
 IMAGE_NAME := h2o-package
-centos6: IMAGE_NAME := $(IMAGE_NAME)-ce6
 centos7: IMAGE_NAME := $(IMAGE_NAME)-ce7
 centos8: IMAGE_NAME := $(IMAGE_NAME)-ce8
 fedora: IMAGE_NAME := $(IMAGE_NAME)-fc31
@@ -10,10 +9,9 @@ opensuse-leap: IMAGE_NAME := $(IMAGE_NAME)-suse-leap
 LIBUV_DOWNLOAD_NAME := v1.9.1.tar.gz
 LIBUV_ARCHIVE := libuv-$(LIBUV_DOWNLOAD_NAME)
 
-.PHONY: all clean centos6 centos7 centos8 fedora opensuse-leap
+.PHONY: all clean centos7 centos8 fedora opensuse-leap
 
-all: centos6 centos7 fedora opensuse-leap
-centos6: centos6.build
+all: centos7 fedora opensuse-leap
 centos7: centos7.build
 centos8: centos8.build
 fedora: fedora.build
