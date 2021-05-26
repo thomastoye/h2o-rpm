@@ -105,7 +105,7 @@ libh2o-devel package provides H2O header files and helpers which allow you to
 build your own software using H2O.
 
 %prep
-%setup -n h2o-%{vendor_version}
+%setup -q -n h2o-%{vendor_version}
 
 %build
 cmake %{ssl_option} -DWITH_MRUBY=on -DCMAKE_INSTALL_PREFIX=%{_prefix} -DBUILD_SHARED_LIBS=on .
