@@ -1,93 +1,30 @@
-H2O Unofficial RPM package builder
-==================================
+H2O COPR
+========
 
-[![Build Status](https://travis-ci.org/tatsushid/h2o-rpm.svg?branch=master)](https://travis-ci.org/tatsushid/h2o-rpm)
+[COPR project]()
 
-This provides [H2O](https://h2o.examp1e.net/) RPM spec file and required files
-e.g. SysVinit, systemd service etc. to build RPM for Fedora, RHEL/CentOS 6/7
-and OpenSUSE.
+Based on [`tatsushid`'s work](https://github.com/tatsushid/h2o-rpm)
 
-If you search Debian package, please see [h2o-deb](https://github.com/tatsushid/h2o-deb)
+This repository is used to build [H2O](https://h2o.examp1e.net/) RPM's for CentOS trough [COPR](https://copr.fedorainfracloud.org/).
 
-## How to use prebuilt RPM
+If you're looking for a Debian package, please see [h2o-deb](https://github.com/tatsushid/h2o-deb)
 
-This has [Bintray RPM repository](https://bintray.com/tatsushid/h2o-rpm) so if
-you'd like to just install such a prebuilt package, please put following into a
-`bintray-tatsushid-h2o-rpm.repo` in `/etc/yum.repos.d`
+## Installation
 
-```ini
-#bintray-tatsushid-h2o-rpm - packages by tatsushid from Bintray
-[bintray-tatsushid-h2o-rpm]
-name=bintray-tatsushid-h2o-rpm
-#If your system is CentOS
-baseurl=https://dl.bintray.com/tatsushid/h2o-rpm/centos/$releasever/$basearch/
-#If your system is Fedora
-#baseurl=https://dl.bintray.com/tatsushid/h2o-rpm/fedora/$releasever/$basearch/
-gpgcheck=0
-repo_gpgcheck=0
-enabled=1
+### Quick enable
+
+If you have `yum-plugin-copr`:
+
+```
+$ dnf enable snthaoeu/h2o
+$ yum -y install h2o
 ```
 
-Once the file is correctly saved, you can install packages in the repository by
+### Manually adding the repository
 
-```bash
-yum install h2o
-```
+Add the relevant repository from [https://copr.fedorainfracloud.org/coprs/snthaoeu/h2o/](here) to `/etc/yum.repos.d` then install with `yum -y install h2o`.
 
-or if you use Fedora
-
-```bash
-dnf install h2o
-```
-
-## How to build RPM
-
-If you have a docker environment, you can build RPMs by just running
-
-```bash
-make
-```
-
-If you'd like to build RPM for specific distribution, please run a command like
-following
-
-```bash
-make centos7
-```
-
-Now this understands
-
-- centos7
-- centos8
-- fedora
-- opensuse-leap
-
-build options.
-
-To build RPM in your server without docker, please copy files under
-[`rpmbuild`](https://github.com/tatsushid/h2o-rpm/blob/master/rpmbuild) to your
-build system
-
-## Installing RPM
-
-After building, please copy RPM under `*.build` directory to your system and
-run
-
-```bash
-yum install h2o-2.2.6-1.el6.x86_64.rpm
-```
-
-or if you use Fedora 22 or later
-
-```bash
-dnf install h2o-2.2.6-1.fc31.x86_64.rpm
-```
-
-or if you use OpenSUSE
-
-```bash
-zypper install h2o-2.2.6-1.x86_64.rpm
-```
+## Usage
 
 Once the installation finishes successfully, you can see a configuration file
 at `/etc/h2o/h2o.conf`.
