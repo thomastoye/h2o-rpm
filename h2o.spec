@@ -38,6 +38,7 @@ Source2: h2o.logrotate
 Source3: h2o.init
 Source4: h2o.service
 Source5: h2o.conf
+Source6: h2o.tmpfiles
 
 License: MIT
 Group: System Environment/Daemons
