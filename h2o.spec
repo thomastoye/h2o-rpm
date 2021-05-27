@@ -30,7 +30,7 @@
 Summary: H2O - The optimized HTTP/1, HTTP/2 server
 Name: h2o
 Version: %(echo %vendor_version | sed 's/-beta/beta/g')
-Release: 2%{?dist}
+Release: 1%{?dist}
 URL: https://h2o.examp1e.net/
 Source0: https://github.com/h2o/h2o/archive/v%{vendor_version}.tar.gz
 Source1: index.html
@@ -329,6 +329,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/h2o
 
 %changelog
+* Thu May 27 2021 Thomas Toye <rpm@toye.io> - 2.3.0beta2-1
+- Update to 2.3.0-beta2
+- Use COPR build
+
 * Sat Apr  4 2020 Tatsushi Demachi <tdemachi@gmail.com> - 2.2.6-2
 - Use OpenSSL provided by distribution as far as possible instead of using
   bundled LibreSSL
