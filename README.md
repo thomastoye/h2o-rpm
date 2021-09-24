@@ -1,7 +1,7 @@
 H2O COPR
 ========
 
-[COPR project]()
+[COPR project](https://copr.fedorainfracloud.org/coprs/snthaoeu/h2o)
 
 Based on [`tatsushid`'s work](https://github.com/tatsushid/h2o-rpm)
 
@@ -22,7 +22,7 @@ $ yum -y install h2o
 
 ### Manually adding the repository
 
-Add the relevant repository from [https://copr.fedorainfracloud.org/coprs/snthaoeu/h2o/](here) to `/etc/yum.repos.d` then install with `yum -y install h2o`.
+Add the relevant repository from [here](https://copr.fedorainfracloud.org/coprs/snthaoeu/h2o) to `/etc/yum.repos.d` then install with `yum -y install h2o`.
 
 ## Usage
 
