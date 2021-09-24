@@ -9,6 +9,7 @@ ExecReload=/bin/kill -HUP ${MAINPID}
 ExecStop=/bin/kill -TERM ${MAINPID}
 PrivateTmp=true
 LimitNOFILE=infinity
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
