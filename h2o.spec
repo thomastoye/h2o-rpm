@@ -43,7 +43,7 @@ Source6: h2o.tmpfiles
 License: MIT
 Group: System Environment/Daemons
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
-BuildRequires: cmake >= 2.8, gcc-c++, openssl-devel, pkgconfig
+BuildRequires: cmake >= 2.8, gcc-c++, openssl-devel, pkgconfig, zlib-devel
 %if 0%{?rhel} == 6
 BuildRequires: rh-ruby23-scldevel, bison
 %else
