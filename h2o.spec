@@ -109,7 +109,7 @@ build your own software using H2O.
 %setup -q -n h2o-%{vendor_version}
 
 %build
-cmake %{ssl_option} -DWITH_MRUBY=on -DCMAKE_INSTALL_PREFIX=%{_prefix} -DBUILD_SHARED_LIBS=on .
+cmake %{ssl_option} -DWITH_MRUBY=off -DCMAKE_INSTALL_PREFIX=%{_prefix} -DBUILD_SHARED_LIBS=on .
 make %{?_smp_mflags}
 
 %if !%{with_systemd}
