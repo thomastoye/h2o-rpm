@@ -292,7 +292,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/h2o/setuidgid
 %{_datadir}/h2o/start_server
 
-%{_datadir}/h2o/mruby
 %{_datadir}/doc
 
 %{_datadir}/h2o/ca-bundle.crt
